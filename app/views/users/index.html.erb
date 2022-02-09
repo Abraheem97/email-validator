@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<br>
+
+<h1>Email Validator</h1>
+
+<%= render 'form', user: @user %>
+
+<h1>Results</h1>
+
+<div>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email.downcase %></td>
+        <td><%= "(#{user.first_name} #{user.last_name})" %></td>
+      </tr>
+    <% end %>
+
+</div>
