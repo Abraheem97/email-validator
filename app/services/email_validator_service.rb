@@ -20,7 +20,8 @@ class EmailValidatorService
       @options[:query].merge!(email: address)
       response = self.class.get('/check', @options)
       if response.parsed_response.values_at("format_valid", "mx_found", "smtp_check", "catch_all") == [true, true, true, false]
-        return address
+        validated_email = address
+        break
       end
     end
     validated_email
